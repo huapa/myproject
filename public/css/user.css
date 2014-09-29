@@ -1,0 +1,72 @@
+/*h6 {
+	font-size: 50px;
+}*/
+@media (max-width: 500px){
+	h6{
+		font-size:8px;
+	}
+
+}
+@media screen and(max-width: 200px){
+
+}
+
+body {
+	background-image: url("../images/body.gif");
+}
+
+
+.container
+{
+	/*
+	padding-left:96px;
+	padding-right:96px;*/
+	
+	width:75%;
+}	
+.jumbotron
+{
+	
+	font-size: 13px;
+	padding-bottom:20px;
+	background-color:#ffffff;
+
+}	
+	
+.container .jumbotron {
+  border-radius: 4px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top:20px;
+}
+	
+.table td
+{
+	width:400px;
+	height:30px;
+}
+.page-header
+{
+	margin:0px;
+	padding-bottom:0px;
+}
+.thumbnail .caption
+{
+	font-style:italic;
+	color:#620D0D;
+}
+
+
+
+.breadcrumb {
+  
+  background-color: #AB2B56;
+  
+}
+.page-header {
+  color:#810101;
+  font-style:italic;
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eeeeee;
+}
