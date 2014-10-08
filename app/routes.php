@@ -14,6 +14,7 @@ Route::get('/',array('uses' => 'FrontEndController@Index','as' => 'frondend'));
 Route::get('/content/{id}',array('uses' => 'FrontEndController@content','as' => 'frondend.content'));
 Route::get('/sub-content/{id}',array('uses' => 'FrontEndController@sub_content','as' => 'frondend.sub_content'));
 Route::get('details/{id}/{path}',array('uses' => 'FrontEndController@detail','as' => 'content.details'));
+Route::post('details/{id}',array('uses' => 'FrontEndController@comment','as' => 'comment'));
 //Route::resource('frontend','FrontEndController');
 Route::get('login',array('uses' => 'AuthController@Index', 'as' => 'login'));
 Route::post('login',array('uses' => 'AuthController@auth', 'as' => 'user'));
@@ -42,6 +43,7 @@ Route::group(array('before' => 'auth'), function(){
 	Route::resource('category','CategoryController');
 	Route::resource('page','PageController');
 	Route::resource('comment','CommentController');
+	Route::resource('album','GalleryController');
 
 });
  

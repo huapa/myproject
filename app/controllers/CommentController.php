@@ -20,7 +20,7 @@ class CommentController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		
 	}
 
 
@@ -31,7 +31,7 @@ class CommentController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
 	}
 
 

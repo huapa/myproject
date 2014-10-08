@@ -27,11 +27,12 @@ class FrontEndController extends \BaseController {
 
 	public function detail($id,$path)
 	{
+		$comment=DB::table('comment')->wherePageId($id)->get();
 		$menu=DB::table('menu')->orderBy('position','asc')->get();
 		$category=DB::table('category')->orderBy('position','asc')->get();
 		$page=Page::find($id);
 		return View::make('frondend.details')
-		->with(array('menu' => $menu,'page' => $page,'category' => $category));	
+		->with(array('menu' => $menu,'page' => $page,'category' => $category,'comment' => $comment));	
 	}
 
 	/**
@@ -57,9 +58,31 @@ class FrontEndController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function comment()
 	{
-		//
+		$page_id=Input::get('page_id');
+		$page_path=Input::get('page_path');
+		$rules=array(
+			'comment' => 'required'
+			);
+		$validator=Validator::make(Input::all(),$rules);
+		if($validator->fails())
+		{
+			return Redirect::to('details/'.$page_id.'/'.$page_path)
+			->withErrors($validator)
+			->withInput();
+
+		}
+		else
+		{
+			$comment=new comment;
+			$user=Sentry::getUser();
+			$comment->user_name=$user->first_name;
+			$comment->body=Input::get('comment');
+			$comment->page_id=$page_id;
+			$comment->save();
+			return Redirect::to('details/'.$page_id.'/'.$page_path);
+		}
 	}
 
 

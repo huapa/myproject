@@ -17,7 +17,7 @@ class Create extends Migration {
 			$table->increments('id');
 			$table->string('sub_menu_title');
 			$table->string('menu_description')->nullable();
-			$table->integer('parent_menu_id');
+			$table->integer('menu_id');
 			$table->integer('position');
 			$table->timestamps();
 

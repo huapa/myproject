@@ -1,6 +1,6 @@
 <?php
 
-class GalleryController extends BaseController {
+class GalleryController extends \BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -23,11 +23,13 @@ class GalleryController extends BaseController {
  //            ->join('contacts', 'users.id', '=', 'contacts.user_id')
  //            ->join('orders', 'users.id', '=', 'orders.user_id')
  //            ->select('users.id', 'contacts.phone', 'orders.price');
-	public function getIndex()
+	public function Index()
 	{
-		 $zf_data=Home::orderBy('zf_yearId','desc')->paginate(4);
-		 $zf_year=Year::all();
-		 return View::make('gallery.album')->with(array('zf_data' => $zf_data, 'zf_year' => $zf_year));
+		 
+		 return View::make('gallery.index');
+		 // $zf_data=Home::orderBy('zf_yearId','desc')->paginate(4);
+		 // $zf_year=Year::all();
+		 // return View::make('gallery.album')->with(array('zf_data' => $zf_data, 'zf_year' => $zf_year));
 		
 	}
 	
